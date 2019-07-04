@@ -1,25 +1,42 @@
 <form>
+  <input type="text" #newTodo   (blur)="addTodo(newTodo.value)">
+  <button (click)="addTodo(newTodo.value)">add</button>
+ 
+    <tr *ngFor="let todo of todos">
+      {{todo.brand}}
+      {{todo.new}}
+      {{todo.used}}
+      {{todo.year}}
+      {{todo.price}}
+    </tr>
+
   <p>Cars</p>
-  <div class="form-group">
     <div>
       <label for="brand">Марка авто :</label>
-      <input type="text" id="brand" placeholder="марка авто">
+      <input type="text" id="brand" placeholder="марка авто"  >
     </div>
     <div>
       <label for="price">Ціна авто :</label>
-      <input type="number" id="price" placeholder="ціна авто">
+      <input type="number" id="price" placeholder="ціна авто"  >
     </div>
     <div>
       <label for="radioButton">Стан авто :</label>
       Нове авто<input type="radio" id="radioButton"> Бу авто<input type="radio" id="radioButton">
     </div>
-
     <div>
       <label for="year">Рік авто :</label>
       <input type="text" id="year" class="form-control" placeholder="рік авто">
     </div>
-  </div>
-
-  <p><button class="btn btn-success" type="submit" (click)="push">Зберегти</button></p>
-
+  <p><button (click)="addTodo(newTodo.value)">Зберегти</button></p>
 </form>
+
+<div>
+    <input #newHero
+    (blur)="addHero(newHero.value); newHero.value='' ">
+
+  <button (click)="addHero(newHero.value)">Add</button>
+
+  <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul>
+</div>
+
+   

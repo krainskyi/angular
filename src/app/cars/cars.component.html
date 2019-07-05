@@ -1,28 +1,32 @@
 <form #userForm="ngForm" (ngSubmit)="addCar(car)">
   <div ngModelGroup="cars">
-    {{userForm.value | json }}
     <div class="form-brand">
       <label>Марка авто :</label>
-      <input  type="text" placeholder="марка авто" name="brand" [ngModel]="car.brand">   
+      <input  type="text" placeholder="марка авто" name="brand" [(ngModel)]="car.brand">   
      </div>
     <div class="form-price">
       <label for="price">Ціна авто :</label>
-      <input type="number" placeholder="ціна авто" name="price" [ngModel]="car.price">
+      <input type="number" placeholder="ціна авто" name="price"  [(ngModel)]="car.price">
     </div>
     <div class="form-year">
       <label for="year">Рік авто :</label>
-      <input type="number" placeholder="рік авто" name="year" [ngModel]="car.year">
+      <input type="number" placeholder="рік авто" name="year" [(ngModel)]="car.year">
     </div>
     <div class="mb-3">
       <label>Стан авто</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="Стан авто" value="б/у" [ngModel]="car.used">
+        <input class="form-check-input" type="radio" name="Стан авто" value="false"  [(ngModel)]="car.used">
         <label class="form-check-label">Used</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="Стан авто" value="нове" [ngModel]="car.used">
+        <input class="form-check-input" type="radio" name="Стан авто" value="true"  [(ngModel)]="car.used">
         <label class="form-check-label">New</label>
-        <p>Marka +{{car.brand}}</p>
+        <div></div>
+        <p *ngFor="let car of cars">Marka + {{car.brand}}
+          {{car.price}}
+          {{car.year}}
+          {{car.used}}
+        </p>
       </div>
     </div>
   </div>

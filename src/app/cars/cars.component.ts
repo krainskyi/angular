@@ -1,4 +1,6 @@
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cars',
@@ -6,35 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-  todos = [
-    {
-      brand: 'Toyota',
-      new: false,
-      used: true,
-      year: 2014,
-      price: 15000
-    }
-    ];
+  
+  public cars: any = [];
+  public car = {brand:'', price: '', year:'', used:false};
   constructor() { }
 
   ngOnInit() {
+  }
 
-  }
-  addTodo(newTodoBrand) {
-    let newTodo = {
-      brand: newTodoBrand,
-      new: newTodoBrand,
-      used: newTodoBrand,
-      year: newTodoBrand,
-      price: newTodoBrand
-    };
-    this.todos.push(newTodo);
-    
-  }
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-  addHero(newHero: string) {
-    if (newHero) {
-      this.heroes.push(newHero);
-    }
-  }
+  addCar(newCar){
+    this.cars.push(newCar);
+    console.log(newCar);
+  }  
+  
+  // heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  // addHero(newHero: string) {
+  //   if (newHero) {
+  //     this.heroes.push(newHero);
+  //   }
+  // }
+  
 }
+
+
+
+
